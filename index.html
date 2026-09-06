@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYTH | Official Band Website</title>
+    <meta name="description" content="Official website for Syth - Heavy riffs and hypnotic grooves formed at WashU in St. Louis. Listen to music, view tour dates, meet the band lineup, and book live shows.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="syth-navbar">
+        <a href="#home" class="nav-brand">
+            <img src="assets/Syth_Logo.png" alt="Syth Logo">
+            <span>SYTH</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#lineup">Lineup</a></li>
+            <li><a href="#shows">Shows</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Booking</a></li>
+        </ul>
+
+        <div class="nav-socials">
+            <a href="https://www.instagram.com/thesythband" target="_blank" class="social-icon-btn" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                </svg>
+            </a>
+            <a href="https://open.spotify.com/artist/4lmRSxE5NnwgPqMDLbacYb" target="_blank" class="social-icon-btn" aria-label="Spotify">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 4.38-1.38 9.841-.719 13.561 1.56.42.24.54.84.18 1.261zm.123-3.42c-3.882-2.34-10.282-2.55-14.002-1.41-.6.18-1.24-.18-1.42-.78-.18-.6.18-1.24.78-1.42 4.26-1.29 11.34-1.05 15.84 1.62.54.3.72 1.02.42 1.56-.3.54-1.02.72-1.618.43z"/>
+                </svg>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-section" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="assets/Syth_Logo.png" alt="Syth Band Logo" class="hero-logo-img">
+            <p class="hero-subtitle">Heavy Riffs & Hypnotic Grooves</p>
+            <p class="hero-tagline">Formed at Washington University in St. Louis • Bringing energy, passion, and high-octane rock to live stages.</p>
+            <div class="hero-actions">
+                <a href="#music" class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    Listen Now
+                </a>
+                <a href="#shows" class="btn-secondary">Tour & Shows</a>
+                <a href="#contact" class="btn-secondary">Book Syth</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MUSIC SECTION -->
+    <section class="section-container" id="music">
+        <div class="section-header">
+            <span class="section-tag">Audio & Discography</span>
+            <h2 class="section-title">Listen to <span>Syth</span></h2>
+        </div>
+
+        <div class="music-grid">
+            <div class="music-card">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                    Featured Release
+                </h3>
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4lmRSxE5NnwgPqMDLbacYb?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <div class="music-card">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V10h4V6h-6z"/></svg>
+                    Live Jam & Playlist
+                </h3>
+                <iframe class="spotify-iframe" style="border-radius:12px;" src="https://open.spotify.com/embed/playlist/3b70HOcE92Y4JNmCpsQwpe?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">Stream Syth on your favorite platform:</p>
+            <div class="streaming-links" style="justify-center;">
+                <a href="https://open.spotify.com/artist/4lmRSxE5NnwgPqMDLbacYb" target="_blank" class="stream-pill">Spotify</a>
+                <a href="https://music.apple.com" target="_blank" class="stream-pill">Apple Music</a>
+                <a href="https://instagram.com/thesythband" target="_blank" class="stream-pill">Instagram Music</a>
+                <a href="https://soundcloud.com" target="_blank" class="stream-pill">SoundCloud</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAND LINEUP SECTION -->
+    <section class="section-container" id="lineup" style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark);">
+        <div class="section-header">
+            <span class="section-tag">Members & Musicians</span>
+            <h2 class="section-title">The Band <span>Lineup</span></h2>
+        </div>
+
+        <div class="lineup-grid">
+            <!-- Member 1: Xander Georgoulis -->
+            <div class="member-card">
+                <div class="member-img-wrap">
+                    <div class="member-avatar-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                    </div>
+                    <span class="member-role-badge">Lead Vocals</span>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Xander Georgoulis</h3>
+                    <p class="member-bio">Commanding lead vocals with infectious energy, delivering Syth's hypnotic melodies and raw rock presence.</p>
+                </div>
+            </div>
+
+            <!-- Member 2: Carlos Pena -->
+            <div class="member-card">
+                <div class="member-img-wrap">
+                    <div class="member-avatar-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                    </div>
+                    <span class="member-role-badge">Guitar</span>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Carlos Pena</h3>
+                    <p class="member-bio">Crafting heavy riffs, soaring leads, and dynamic textures that form the sonic backbone of Syth.</p>
+                </div>
+            </div>
+
+            <!-- Member 3: Maxwell Mitchell -->
+            <div class="member-card">
+                <div class="member-img-wrap">
+                    <img src="assets/Maxwell_bass.jpg" alt="Maxwell Mitchell - Bass" class="member-img">
+                    <span class="member-role-badge">Bass</span>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Maxwell Mitchell</h3>
+                    <p class="member-bio">Driving the deep grooves, punchy low-end baselines, and rhythmic foundation behind every performance.</p>
+                </div>
+            </div>
+
+            <!-- Member 4: Mark Jennings -->
+            <div class="member-card">
+                <div class="member-img-wrap">
+                    <div class="member-avatar-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                    </div>
+                    <span class="member-role-badge">Drums</span>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Mark Jennings</h3>
+                    <p class="member-bio">The heartbeat of Syth, bringing relentless drive, explosive drum solos, and pinpoint tempo precision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE SHOWS & TOUR SECTION -->
+    <section class="section-container" id="shows">
+        <div class="section-header">
+            <span class="section-tag">Concerts & Gigs</span>
+            <h2 class="section-title">Live <span>Shows</span></h2>
+        </div>
+
+        <div class="shows-wrapper">
+            <div class="shows-filter-bar">
+                <span class="shows-count" id="showsCount">Showing 19 Shows</span>
+                <input type="text" id="showsSearch" class="shows-search" placeholder="Search venue or date...">
+            </div>
+
+            <ul class="shows-list" id="showsList">
+                <li class="show-item"><span class="show-date">4/23/26</span><span class="show-venue">Strike #3</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">4/21/26</span><span class="show-venue">Camille Blackman x Syth</span><span class="show-location">WashU Campus</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">4/18/26</span><span class="show-venue">Thurteen Carnival</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">4/17/26</span><span class="show-venue">Burning Kumquat</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">4/4/26</span><span class="show-venue">Moshmellow</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">4/4/26</span><span class="show-venue">Sebbie and Marco's Birthday Bash #2</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">3/28/26</span><span class="show-venue">Bookstock #2</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">3/21/26</span><span class="show-venue">Architecture Formal #2</span><span class="show-location">WashU Campus</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">2/12/26</span><span class="show-venue">Strike x Syth Valentine's Day Party #2</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">1/30/26</span><span class="show-venue">KWUR #2</span><span class="show-location">WashU Radio</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">12/7/25</span><span class="show-venue">LINUS</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">10/31/25</span><span class="show-venue">KWUR Space Race #1</span><span class="show-location">WashU Radio</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">10/25/25</span><span class="show-venue">Strike x Syth Halloween Party #1</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">9/26/25</span><span class="show-venue">Track Fall Formal</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">8/31/25</span><span class="show-venue">Syth Darty</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">4/27/25</span><span class="show-venue">BeiQiArt x Syth - Bridging the Mystique</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">4/11/25</span><span class="show-venue">Sebbie and Marco's Birthday Bash #1</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">3/29/25</span><span class="show-venue">Bookstock #1</span><span class="show-location">St. Louis, MO</span><span class="show-status status-past">Past</span></li>
+                <li class="show-item"><span class="show-date">3/22/25</span><span class="show-venue">WashU Architecture Formal #1</span><span class="show-location">WashU Campus</span><span class="show-status status-past">Past</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- GIG GALLERY & MEDIA SECTION -->
+    <section class="section-container" id="gallery">
+        <div class="section-header">
+            <span class="section-tag">Photos & Highlights</span>
+            <h2 class="section-title">Gig <span>Gallery</span></h2>
+        </div>
+
+        <div class="gallery-banner-wrap">
+            <img src="assets/syth_art.jpg" alt="Syth Band Pop Art Poster Halftone" class="gallery-banner-img">
+        </div>
+
+        <div class="gallery-grid">
+            <div class="ig-embed-card">
+                <iframe src="https://www.instagram.com/p/DHNGuHWxGUz/embed" loading="lazy" allowtransparency="true"></iframe>
+            </div>
+            <div class="ig-embed-card">
+                <iframe src="https://www.instagram.com/p/DIXvNnDx0AF/embed" loading="lazy" allowtransparency="true"></iframe>
+            </div>
+            <div class="ig-embed-card">
+                <iframe src="https://www.instagram.com/p/DO4W7YnkYNo/embed" loading="lazy" allowtransparency="true"></iframe>
+            </div>
+            <div class="ig-embed-card">
+                <iframe src="https://www.instagram.com/p/DSYNJFDkezZ/embed" loading="lazy" allowtransparency="true"></iframe>
+            </div>
+            <div class="ig-embed-card">
+                <iframe src="https://www.instagram.com/p/DUg1XRuEeZO/embed" loading="lazy" allowtransparency="true"></iframe>
+            </div>
+            <div class="ig-embed-card">
+                <iframe src="https://www.instagram.com/p/DVFOnLbkS-c/embed" loading="lazy" allowtransparency="true"></iframe>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://www.instagram.com/thesythband" target="_blank" class="btn-primary">
+                Follow @thesythband on Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- BOOKING & CONTACT SECTION -->
+    <section class="section-container" id="contact" style="border-top: 1px solid var(--border-dark);">
+        <div class="section-header">
+            <span class="section-tag">Get in Touch</span>
+            <h2 class="section-title">Book <span>Syth</span></h2>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <div>
+                    <h3>Let's Make Noise</h3>
+                    <p>Looking to book Syth for a campus event, venue show, formal, or private party? Drop us a message and we'll get back to you promptly.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>St. Louis, MO • Washington University</span>
+                        </div>
+                        <div class="contact-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <span>Booking & Press: SythBand@gmail.com</span>
+                        </div>
+                        <div class="contact-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                            <span>DM on Instagram: @thesythband</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                    Band Lineup: Xander Georgoulis (Vocals) • Carlos Pena (Guitar) • Maxwell Mitchell (Bass) • Mark Jennings (Drums)
+                </div>
+            </div>
+
+            <form class="booking-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Syth booking will contact you soon.'); this.reset();">
+                <div class="form-group">
+                    <label for="name">Your Name / Organization</label>
+                    <input type="text" id="name" class="form-control" placeholder="e.g. WashU Student Union / Venue Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Contact Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="yourname@domain.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Proposed Event Date</label>
+                    <input type="date" id="date" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="message">Event Details & Message</label>
+                    <textarea id="message" class="form-control" placeholder="Tell us about the venue, time, set length, or event type..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="justify-content: center; width: 100%; border: none; cursor: pointer;">
+                    Send Booking Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="syth-footer">
+        <img src="assets/Syth_Logo.png" alt="Syth Logo" class="footer-logo">
+        <p>&copy; 2026 SYTH Band. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 6px; opacity: 0.6;">Heavy Riffs & Hypnotic Grooves • St. Louis, MO</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            mobileToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                mobileToggle.textContent = '☰';
+            });
+        });
+
+        // Search Filter for Shows
+        const showsSearch = document.getElementById('showsSearch');
+        const showsList = document.getElementById('showsList');
+        const showItems = showsList.getElementsByClassName('show-item');
+        const showsCount = document.getElementById('showsCount');
+
+        showsSearch.addEventListener('keyup', function() {
+            const query = showsSearch.value.toLowerCase();
+            let visibleCount = 0;
+
+            Array.from(showItems).forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'grid';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            showsCount.textContent = `Showing ${visibleCount} Show${visibleCount === 1 ? '' : 's'}`;
+        });
+
+        // Scroll Active State
+        const sections = document.querySelectorAll('section, header');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
