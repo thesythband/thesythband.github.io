@@ -284,42 +284,29 @@ img {
     will-change: transform, filter;
 }
 
-/* Electric Lightning Strike & Glow on Hover */
+/* Electric Lightning Strike & Glow on Hover (Steady & Smooth) */
 .hero-logo-interactive-wrap:hover .hero-logo-banner,
 .hero-logo-interactive-wrap.electrified .hero-logo-banner {
-    animation: lightningSurge 0.35s ease-in-out infinite alternate, electricJitter 0.07s ease infinite;
+    transform: scale(1.035) translateY(-3px);
+    animation: lightningSurge 0.6s ease-in-out infinite alternate;
 }
 
 @keyframes lightningSurge {
     0% {
-        filter: drop-shadow(0 0 5px #ffffff) 
+        filter: drop-shadow(0 0 6px #ffffff) 
                 drop-shadow(0 0 16px var(--pink-primary)) 
-                drop-shadow(0 0 32px rgba(255, 20, 147, 0.75));
+                drop-shadow(0 0 32px rgba(255, 20, 147, 0.7));
     }
-    40% {
+    50% {
         filter: drop-shadow(0 0 12px #ffffff) 
-                drop-shadow(0 0 28px #ff69b4) 
-                drop-shadow(0 0 55px rgba(255, 20, 147, 1)) 
-                drop-shadow(0 0 85px rgba(255, 255, 255, 0.9));
-    }
-    70% {
-        filter: drop-shadow(0 0 7px #ffffff) 
-                drop-shadow(0 0 20px var(--pink-primary)) 
-                drop-shadow(0 0 40px rgba(255, 20, 147, 0.85));
+                drop-shadow(0 0 26px #ff69b4) 
+                drop-shadow(0 0 48px rgba(255, 20, 147, 0.85));
     }
     100% {
         filter: drop-shadow(0 0 16px #ffffff) 
-                drop-shadow(0 0 35px var(--pink-primary)) 
-                drop-shadow(0 0 70px rgba(255, 20, 147, 0.95));
+                drop-shadow(0 0 34px var(--pink-primary)) 
+                drop-shadow(0 0 60px rgba(255, 20, 147, 0.95));
     }
-}
-
-@keyframes electricJitter {
-    0% { transform: scale(1.06) translate(0, 0) rotate(0deg); }
-    25% { transform: scale(1.065) translate(-1.5px, 1px) rotate(-0.6deg); }
-    50% { transform: scale(1.06) translate(1.5px, -1px) rotate(0.5deg); }
-    75% { transform: scale(1.065) translate(-1px, -1px) rotate(-0.3deg); }
-    100% { transform: scale(1.06) translate(1px, 0.5px) rotate(0deg); }
 }
 
 /* Lightning Arc Canvas Layer */

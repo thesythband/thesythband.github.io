@@ -2338,22 +2338,21 @@
                 resizeCanvas();
                 triggerLightningBolt();
 
-                // Periodic lightning crackle
+                // Periodic gentle lightning crackle
                 function scheduleNextBolt() {
                     if (!isHovered) return;
                     triggerLightningBolt();
-                    lightningAnimId = setTimeout(scheduleNextBolt, Math.random() * 160 + 100);
+                    lightningAnimId = setTimeout(scheduleNextBolt, Math.random() * 240 + 200);
                 }
                 scheduleNextBolt();
 
-                // Continuous stream of rising musical notes
-                spawnMusicalNote();
+                // Gentle, tasteful stream of rising musical notes
                 spawnMusicalNote();
                 noteInterval = setInterval(() => {
                     if (isHovered) {
                         spawnMusicalNote();
                     }
-                }, 130);
+                }, 480);
             }
 
             function stopEffects() {
@@ -2366,33 +2365,32 @@
             heroLogoWrap.addEventListener('mouseenter', startEffects);
             heroLogoWrap.addEventListener('mouseleave', stopEffects);
 
-            // On mousemove over the logo, spawn notes near the cursor
+            // On mousemove over the logo, subtle occasional note
             heroLogoWrap.addEventListener('mousemove', (e) => {
                 if (!isHovered) startEffects();
                 const rect = heroLogoWrap.getBoundingClientRect();
                 const mouseX = e.clientX - rect.left;
                 const mouseY = e.clientY - rect.top;
-                if (Math.random() < 0.4) {
+                if (Math.random() < 0.08) {
                     spawnMusicalNote(mouseX, mouseY);
                 }
             });
 
-            // Click shockwave chord burst!
+            // Click shockwave chord burst (toned down & clean)
             heroLogoWrap.addEventListener('click', (e) => {
                 const rect = heroLogoWrap.getBoundingClientRect();
                 const clickX = e.clientX - rect.left;
                 const clickY = e.clientY - rect.top;
 
-                // Big lightning strike
+                // Single crisp lightning strike
                 triggerLightningBolt();
-                setTimeout(triggerLightningBolt, 80);
-                setTimeout(triggerLightningBolt, 160);
+                setTimeout(triggerLightningBolt, 120);
 
-                // Burst of 8 musical notes
-                for (let i = 0; i < 8; i++) {
+                // Small burst of 4 musical notes
+                for (let i = 0; i < 4; i++) {
                     setTimeout(() => {
-                        spawnMusicalNote(clickX + (Math.random() - 0.5) * 60, clickY + (Math.random() - 0.5) * 40);
-                    }, i * 35);
+                        spawnMusicalNote(clickX + (Math.random() - 0.5) * 40, clickY + (Math.random() - 0.5) * 30);
+                    }, i * 60);
                 }
             });
         }
