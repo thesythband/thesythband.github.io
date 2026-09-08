@@ -264,17 +264,137 @@ img {
     50% { opacity: 0.4; transform: scale(1.3); }
 }
 
-.hero-logo-banner {
-    max-width: 320px;
+.hero-logo-interactive-wrap {
+    position: relative;
+    display: inline-block;
+    max-width: 460px;
     width: 100%;
-    height: auto;
-    margin-bottom: 1.2rem;
-    filter: drop-shadow(0 4px 14px rgba(255, 20, 147, 0.15));
-    transition: transform 0.4s ease;
+    margin-bottom: 1.4rem;
+    cursor: pointer;
+    user-select: none;
 }
 
-.hero-logo-banner:hover {
-    transform: scale(1.04) rotate(-1deg);
+.hero-logo-banner {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 14px rgba(255, 20, 147, 0.15));
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+    will-change: transform, filter;
+}
+
+/* Electric Lightning Strike & Glow on Hover */
+.hero-logo-interactive-wrap:hover .hero-logo-banner,
+.hero-logo-interactive-wrap.electrified .hero-logo-banner {
+    animation: lightningSurge 0.35s ease-in-out infinite alternate, electricJitter 0.07s ease infinite;
+}
+
+@keyframes lightningSurge {
+    0% {
+        filter: drop-shadow(0 0 5px #ffffff) 
+                drop-shadow(0 0 16px var(--pink-primary)) 
+                drop-shadow(0 0 32px rgba(255, 20, 147, 0.75));
+    }
+    40% {
+        filter: drop-shadow(0 0 12px #ffffff) 
+                drop-shadow(0 0 28px #ff69b4) 
+                drop-shadow(0 0 55px rgba(255, 20, 147, 1)) 
+                drop-shadow(0 0 85px rgba(255, 255, 255, 0.9));
+    }
+    70% {
+        filter: drop-shadow(0 0 7px #ffffff) 
+                drop-shadow(0 0 20px var(--pink-primary)) 
+                drop-shadow(0 0 40px rgba(255, 20, 147, 0.85));
+    }
+    100% {
+        filter: drop-shadow(0 0 16px #ffffff) 
+                drop-shadow(0 0 35px var(--pink-primary)) 
+                drop-shadow(0 0 70px rgba(255, 20, 147, 0.95));
+    }
+}
+
+@keyframes electricJitter {
+    0% { transform: scale(1.06) translate(0, 0) rotate(0deg); }
+    25% { transform: scale(1.065) translate(-1.5px, 1px) rotate(-0.6deg); }
+    50% { transform: scale(1.06) translate(1.5px, -1px) rotate(0.5deg); }
+    75% { transform: scale(1.065) translate(-1px, -1px) rotate(-0.3deg); }
+    100% { transform: scale(1.06) translate(1px, 0.5px) rotate(0deg); }
+}
+
+/* Lightning Arc Canvas Layer */
+.lightning-canvas {
+    position: absolute;
+    inset: -30px;
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Floating Musical Notes Container & Keyframes */
+.notes-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 12;
+    overflow: visible;
+}
+
+.floating-note {
+    position: absolute;
+    pointer-events: none;
+    font-family: var(--font-heading), -apple-system, sans-serif;
+    font-weight: 900;
+    line-height: 1;
+    z-index: 15;
+    color: var(--pink-primary);
+    text-shadow: 0 0 8px #ffffff, 0 0 16px var(--pink-primary), 0 0 30px rgba(255, 20, 147, 0.9);
+    animation: floatUpAndFade 1.7s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes floatUpAndFade {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.3) rotate(0deg);
+    }
+    15% {
+        opacity: 1;
+        transform: translate(calc(var(--drift-x) * 0.25), -30px) scale(1.2) rotate(calc(var(--rot) * 0.3));
+    }
+    60% {
+        opacity: 0.95;
+        transform: translate(calc(var(--drift-x) * 0.75), -100px) scale(1) rotate(calc(var(--rot) * 0.8));
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--drift-x), -175px) scale(0.65) rotate(var(--rot));
+    }
+}
+
+/* Electric Spark Particle */
+.electric-spark {
+    position: absolute;
+    pointer-events: none;
+    z-index: 16;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 8px #ffffff, 0 0 15px var(--pink-primary);
+    animation: sparkDisperse 0.55s ease-out forwards;
+}
+
+@keyframes sparkDisperse {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1.4);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--spark-x), var(--spark-y)) scale(0.2);
+    }
 }
 
 .hero-title {

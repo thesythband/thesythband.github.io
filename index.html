@@ -60,8 +60,12 @@
                     Featured Single: Laughing Monsters
                 </div>
 
-                <!-- HANDWRITTEN LOGO BANNER -->
-                <img src="assets/syth_handwritten_logo.png" alt="Syth Handwritten Calligraphy Logo" class="hero-logo-banner">
+                <!-- HANDWRITTEN LOGO BANNER (INTERACTIVE WITH LIGHTNING & FLOATING MUSICAL NOTES) -->
+                <div class="hero-logo-interactive-wrap" id="heroLogoWrap" title="Hover for lightning & music notes!">
+                    <canvas class="lightning-canvas" id="lightningCanvas"></canvas>
+                    <div class="notes-container" id="notesContainer"></div>
+                    <img src="assets/syth_handwritten_logo.png" alt="Syth Handwritten Calligraphy Logo" class="hero-logo-banner" id="heroLogoImg">
+                </div>
 
                 <h1 class="hero-title">
                     HEAVY RIFFS & <span>GROOVES</span>
@@ -2210,6 +2214,185 @@
                 }
                 if (isExpanded) {
                     galleryGridArchive.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+
+        // ==========================================================================
+        // HERO LOGO LIGHTNING & FLOATING MUSICAL NOTES EFFECT
+        // ==========================================================================
+        const heroLogoWrap = document.getElementById('heroLogoWrap');
+        const lightningCanvas = document.getElementById('lightningCanvas');
+        const notesContainer = document.getElementById('notesContainer');
+
+        if (heroLogoWrap && lightningCanvas && notesContainer) {
+            const ctx = lightningCanvas.getContext('2d');
+            let isHovered = false;
+            let noteInterval = null;
+            let lightningAnimId = null;
+
+            function resizeCanvas() {
+                const rect = heroLogoWrap.getBoundingClientRect();
+                lightningCanvas.width = rect.width + 60;
+                lightningCanvas.height = rect.height + 60;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            // Draw Jagged Lightning Bolt
+            function drawLightningBranch(x1, y1, x2, y2, displace, depth, color, width) {
+                if (depth <= 0) {
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = width;
+                    ctx.shadowBlur = 16;
+                    ctx.shadowColor = color;
+                    ctx.stroke();
+                    return;
+                }
+                const midX = (x1 + x2) / 2 + (Math.random() - 0.5) * displace;
+                const midY = (y1 + y2) / 2 + (Math.random() - 0.5) * displace;
+                drawLightningBranch(x1, y1, midX, midY, displace / 1.7, depth - 1, color, width);
+                drawLightningBranch(midX, midY, x2, y2, displace / 1.7, depth - 1, color, width);
+
+                // Small sub-fork branch
+                if (depth > 2 && Math.random() < 0.35) {
+                    const forkX = midX + (Math.random() - 0.5) * displace * 1.5;
+                    const forkY = midY + Math.random() * displace;
+                    drawLightningBranch(midX, midY, forkX, forkY, displace / 2, depth - 2, '#ff69b4', width * 0.7);
+                }
+            }
+
+            function triggerLightningBolt() {
+                if (!isHovered) return;
+                ctx.clearRect(0, 0, lightningCanvas.width, lightningCanvas.height);
+
+                const w = lightningCanvas.width;
+                const h = lightningCanvas.height;
+
+                // 2-3 simultaneous lightning strikes across the logo
+                const numBolts = Math.floor(Math.random() * 2) + 1;
+                for (let i = 0; i < numBolts; i++) {
+                    const startX = 30 + Math.random() * (w - 60);
+                    const startY = 10 + Math.random() * 20;
+                    const endX = startX + (Math.random() - 0.5) * (w * 0.6);
+                    const endY = h - 20 - Math.random() * 20;
+                    const colors = ['#ffffff', '#ff1493', '#ff69b4', '#00ffff'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    drawLightningBranch(startX, startY, endX, endY, 45, 5, color, Math.random() * 2 + 1.5);
+                }
+
+                // Fade out bolt after brief flash
+                setTimeout(() => {
+                    ctx.clearRect(0, 0, lightningCanvas.width, lightningCanvas.height);
+                }, 75);
+            }
+
+            // Floating Note Particle Generator
+            const noteSymbols = ['♪', '♫', '♬', '♩', '𝄞', '𝄢', '✦', '⚡'];
+            const noteColors = ['#ff1493', '#ff69b4', '#ffffff', '#ff007f', '#ff85c1'];
+
+            function spawnMusicalNote(originX, originY) {
+                const note = document.createElement('span');
+                note.className = 'floating-note';
+                note.textContent = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
+
+                const wrapRect = heroLogoWrap.getBoundingClientRect();
+                const posX = originX !== undefined ? originX : (Math.random() * (wrapRect.width - 40) + 20);
+                const posY = originY !== undefined ? originY : (Math.random() * (wrapRect.height * 0.6) + wrapRect.height * 0.2);
+
+                const driftX = (Math.random() - 0.5) * 80;
+                const rotation = (Math.random() - 0.5) * 60;
+                const fontSize = (Math.random() * 1.2 + 1.2).toFixed(2);
+                const color = noteColors[Math.floor(Math.random() * noteColors.length)];
+
+                note.style.left = `${posX}px`;
+                note.style.top = `${posY}px`;
+                note.style.fontSize = `${fontSize}rem`;
+                note.style.color = color;
+                note.style.setProperty('--drift-x', `${driftX}px`);
+                note.style.setProperty('--rot', `${rotation}deg`);
+
+                notesContainer.appendChild(note);
+
+                // Spawn tiny sparks around note
+                for (let s = 0; s < 2; s++) {
+                    const spark = document.createElement('span');
+                    spark.className = 'electric-spark';
+                    spark.style.left = `${posX + (Math.random() - 0.5) * 20}px`;
+                    spark.style.top = `${posY + (Math.random() - 0.5) * 20}px`;
+                    spark.style.setProperty('--spark-x', `${(Math.random() - 0.5) * 60}px`);
+                    spark.style.setProperty('--spark-y', `${(Math.random() - 0.5) * 60}px`);
+                    notesContainer.appendChild(spark);
+                    setTimeout(() => spark.remove(), 600);
+                }
+
+                setTimeout(() => note.remove(), 1800);
+            }
+
+            function startEffects() {
+                if (isHovered) return;
+                isHovered = true;
+                resizeCanvas();
+                triggerLightningBolt();
+
+                // Periodic lightning crackle
+                function scheduleNextBolt() {
+                    if (!isHovered) return;
+                    triggerLightningBolt();
+                    lightningAnimId = setTimeout(scheduleNextBolt, Math.random() * 160 + 100);
+                }
+                scheduleNextBolt();
+
+                // Continuous stream of rising musical notes
+                spawnMusicalNote();
+                spawnMusicalNote();
+                noteInterval = setInterval(() => {
+                    if (isHovered) {
+                        spawnMusicalNote();
+                    }
+                }, 130);
+            }
+
+            function stopEffects() {
+                isHovered = false;
+                if (noteInterval) clearInterval(noteInterval);
+                if (lightningAnimId) clearTimeout(lightningAnimId);
+                ctx.clearRect(0, 0, lightningCanvas.width, lightningCanvas.height);
+            }
+
+            heroLogoWrap.addEventListener('mouseenter', startEffects);
+            heroLogoWrap.addEventListener('mouseleave', stopEffects);
+
+            // On mousemove over the logo, spawn notes near the cursor
+            heroLogoWrap.addEventListener('mousemove', (e) => {
+                if (!isHovered) startEffects();
+                const rect = heroLogoWrap.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                if (Math.random() < 0.4) {
+                    spawnMusicalNote(mouseX, mouseY);
+                }
+            });
+
+            // Click shockwave chord burst!
+            heroLogoWrap.addEventListener('click', (e) => {
+                const rect = heroLogoWrap.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+
+                // Big lightning strike
+                triggerLightningBolt();
+                setTimeout(triggerLightningBolt, 80);
+                setTimeout(triggerLightningBolt, 160);
+
+                // Burst of 8 musical notes
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        spawnMusicalNote(clickX + (Math.random() - 0.5) * 60, clickY + (Math.random() - 0.5) * 40);
+                    }, i * 35);
                 }
             });
         }
