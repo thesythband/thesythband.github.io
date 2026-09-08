@@ -683,6 +683,16 @@ img {
    MUSIC & DISCOGRAPHY SECTION
    ========================================================================== */
 
+.music-streaming-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.music-streaming-bar .streaming-pills {
+    justify-content: center;
+}
+
 .music-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -696,6 +706,12 @@ img {
     padding: 1.8rem;
     box-shadow: var(--shadow-subtle);
     transition: var(--transition-smooth);
+}
+
+.music-card-featured {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .music-card:hover {
@@ -721,6 +737,84 @@ img {
 
 .music-card-title span {
     color: var(--pink-primary);
+}
+
+/* EP TRACKLIST CARD */
+.ep-tracklist-card {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2.5rem;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 2.2rem;
+    align-items: center;
+    box-shadow: var(--shadow-subtle);
+    max-width: 900px;
+    margin: 2.5rem auto 0;
+    transition: var(--transition-smooth);
+}
+
+.ep-tracklist-card:hover {
+    border-color: var(--pink-primary);
+    box-shadow: 0 12px 30px rgba(255, 20, 147, 0.1);
+    transform: translateY(-2px);
+}
+
+.ep-tracklist-img-wrap {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-subtle);
+}
+
+.ep-tracklist-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ep-tracklist-content h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+}
+
+.ep-tracklist-content h3 span {
+    color: var(--pink-primary);
+}
+
+.ep-tracklist-ol {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ep-tracklist-ol li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-black);
+}
+
+.ep-tracklist-ol .track-num {
+    color: var(--pink-primary);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .ep-tracklist-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
 }
 
 /* ==========================================================================
